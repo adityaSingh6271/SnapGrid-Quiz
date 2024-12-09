@@ -1,28 +1,40 @@
-Quiz Builder Application
-Features
+Code Approach
 
-1. Snap Grid System
+1. Grid System Implementation
+   Grid Canvas:
 
-Grid Canvas: Components snap to predefined grid positions.
-Available Components: Progress Bar, Question Number, Timer, Question Text, Image, and 4 Options.
-State Management: Save component positions and details to the backend when dropped. 2. Admin View
+A flexbox or CSS grid layout is used for the canvas to define predefined snapping positions.
+Components "snap" to the nearest grid position using drag-and-drop libraries like react-dnd or react-beautiful-dnd.
+Positioning is calculated using mouse coordinates and the grid’s cell dimensions.
+State Management:
 
-Draggable Elements: Navigation drawer with draggable components.
-Drag-and-Drop: Arrange components on the grid.
-Configuration Saving: Save quiz structures to the backend using Remix Actions. 3. User View
+Component positions and properties are stored in a centralized state, such as React Context, Redux, or Zustand.
+Updates are sent to the backend using Remix Actions for persistence. 2. Admin View
+Draggable Components:
 
-Quiz Interaction: Load quiz setup using Remix Loaders and answer questions.
-Answer Validation: Test if submitted answers are correct. 4. Backend Integration
+Components in the navigation drawer are wrapped in a drag source.
+The grid canvas acts as a drop target.
+Drag-and-Drop:
 
-Supports mock or real backend for:
-Fetching quiz components.
-Saving grid and quiz configurations. 5. Responsive Design
+Dragging updates the position of the component relative to the grid.
+Drop events trigger functions to save the updated layout.
+Configuration Saving:
 
-Grid system and navigation drawer adapt to mobile, tablet, and desktop. 6. Accessibility
+The grid’s state is serialized into a JSON structure and sent to the backend via Remix Actions (action functions). 3. User View
+Fetching Quiz Data:
 
-Keyboard Navigation: Enhanced for grid and components.
-Focus Management: Improved usability for keyboard users.
-Technical Requirements
+Quiz configurations are fetched using Remix Loaders (loader functions).
+Data is loaded on the server and passed as props to the client.
+Quiz Interaction:
+
+Components like Progress Bar, Question Number, Timer, and Options render dynamically based on the fetched configuration.
+State is managed for user interactions (e.g., selected options, timer countdown).
+Answer Validation:
+
+User inputs are validated against pre-stored correct answers in the backend.
+Validation logic is invoked upon submission. 4. Backend Integration
+A mock backend can be set up using JSON files or services like json-server. 5. Responsive Design
+Tailwind CSS utilities are used for responsiveness (sm, md, lg classes).
 
 1. Remix Loaders & Actions
 
