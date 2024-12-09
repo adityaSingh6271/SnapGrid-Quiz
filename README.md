@@ -82,7 +82,7 @@ User Workflow
 
 Fetch quiz setup using Remix Loaders.
 Interact with the quiz and submit answers.
-View answer validations.
+
 Styling
 Framework: Tailwind CSS.
 Customization: Modify styles in tailwind.config.js and component classnames.
